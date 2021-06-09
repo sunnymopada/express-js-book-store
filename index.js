@@ -26,7 +26,6 @@ const initializeDBAndServer = async () => {
 initializeDBAndServer();
 
 app.get("/books", async (request, response) => {
-  console.log("Request");
   const getBooksQuery = `
     SELECT
     *
@@ -36,4 +35,17 @@ app.get("/books", async (request, response) => {
     book_id;`;
   const books = await db.all(getBooksQuery);
   response.send(books);
+});
+
+app.get("/book/:bookId", async (request, response) => {
+  const { bookId } = request.params;
+  const getBookQuery = `
+    SELECT
+    *
+    FROM
+    book
+    WHERE
+    book_id=${bookId};`;
+  const book = await db.get(getBookQuery);
+  response.send(book);
 });
