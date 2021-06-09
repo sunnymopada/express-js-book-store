@@ -3,3 +3,22 @@ GET http://localhost:5000/books/
 ###
 
 GET http://localhost:5000/book/1
+
+
+###
+POST http://localhost:5000/book/
+Content-Type: application/json
+
+{
+    "title": "Newly Added Book",
+    "author_id": 1,
+    "rating": 4.48,
+    "rating_count": 7464819,
+    "review_count": 118312,
+    "description": "Harry Potters life is miserable. His parents are dead and hes stuck with his heartless relatives.",
+    "pages": 309,
+    "date_of_publication": "November 1st 2003",
+    "edition_language": "English",
+    "price": 750,
+    "online_stores": "Amazon, Audible,Google play, Indigo,Abebooks"
+}
